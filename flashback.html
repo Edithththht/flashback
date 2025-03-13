@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Flashback</title>
+<style>
+body {
+margin: 0;
+overflow: hidden;
+position: relative;
+background-color: #301934;
+}
+
+.image {
+            position: absolute;
+            transition: all 0.3s ease;
+            width: 800px;  
+            height: 800px; 
+            left: 50%;     
+            transform: translateX(-50%); 
+            display: none;
+            object-fit: contain; 
+        }
+#imagen4{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    right: 30.04%;
+    top: 100px;
+    transform: translateX(50%); 
+    object-fit: contain; 
+}
+#imagen5{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    right: 9.79%;
+    top: 120px;
+    transform: translateX(50%); 
+    object-fit: contain; 
+}
+</style>
+<body>
+    <img src="c.png" class="image" alt="imagen1" id="imagen1" >
+    <img src="d.png" class="image" alt="imagen2" id="imagen2" >
+    <img src="i.png" class="image" alt="imagen3" id="imagen3" >
+
+    <a href="cuarto.html"><img src="pasado.png" alt="cuarto" id="imagen4"></a>  
+    <a href="futuro.html"><img src="futuro.png" alt="cuarto" id="imagen5"></a> 
+<!-- javascript para que la imagen de la persona cambie con respecto al mouse-->
+<script>
+    function mouseMoved(event) {
+        const mouseX = event.clientX; 
+        const screenWidth = window.innerWidth; 
+
+        const imagen1 = document.getElementById('imagen1'); 
+        const imagen2 = document.getElementById('imagen2'); 
+        const imagen3 = document.getElementById('imagen3'); 
+
+       
+        imagen1.style.display = 'none';
+        imagen2.style.display = 'none';
+        imagen3.style.display = 'none';
+
+       
+        if (mouseX < screenWidth / 3) {
+          
+            imagen3.style.display = 'block';
+        } else if (mouseX >= screenWidth / 3 && mouseX <= 2 * screenWidth / 3) {
+            
+            imagen1.style.display = 'block';
+        } else {
+            
+            imagen2.style.display = 'block';
+        }
+    }
+    document.addEventListener('mousemove', mouseMoved);
+</script>
+
+</body>
+
+</head>
